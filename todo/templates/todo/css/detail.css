@@ -1,0 +1,15 @@
+h1 {
+    background-color : lightblue;
+    font-family: arial;
+    font-size: 50px;
+}
+
+body{
+    background-color : lightcyan;
+}
+
+ul{
+    background-color : lightgreen;
+    font-family: arial;
+    font-size: 30px;
+}
