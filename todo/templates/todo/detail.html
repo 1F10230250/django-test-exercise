@@ -11,7 +11,7 @@
 
   <body>
     <h1>{{ task.title }}</h1>
-    <h2>Detail:{{ task.detail }}</h2>
+    <h2>詳細:{{ task.detail }}</h2>
     <ul>
       <li>登録日: {{ task.posted_at }}</li>
       {% if task.due_at %}
@@ -30,7 +30,7 @@
       <a href="{% url 'index' %}">トップ</a>
       | <a href="{% url 'update' task.id %}">編集</a>
       | <a href="{% url 'delete' task.id %}">削除</a>
-      | <a href="{% url 'start' task.id %}">Start</a>
+      | <a href="{% url 'start' task.id %}">始める</a>
       | <a href="{% url 'close' task.id %}">完了にする</a>
     </div>
   </body>
