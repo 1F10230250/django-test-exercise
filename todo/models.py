@@ -3,8 +3,14 @@ from django.utils import timezone
 
 # Create your models here.
 class Task (models.Model):
+    STATUS_CHOICES = [
+        ('not_completed', 'Not Completed'),
+        ('in_progress', 'In Progress'),
+        ('completed', 'Completed'),
+    ]
+
     title = models.CharField(max_length=100)
-    completed = models.BooleanField(default=False)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='not_completed')
     posted_at = models.DateTimeField(default=timezone.now)
     due_at = models.DateTimeField(null=True, blank=True)
 

@@ -15,8 +15,10 @@
       {% if task.due_at %}
       <li>Due at: {{ task.due_at }}</li>
       {% endif %}
-      {% if task.completed %}
+      {% if task.status == "completed" %} 
       <li>Status: Completed</li>
+      {% elif task.status == "in_progress" %}
+      <li>Status: In Progress</li>
       {% else %}
       <li>Status: Not Completed</li>
       {% endif %}
@@ -26,6 +28,7 @@
       <a href="{% url 'index' %}">Top</a>
       | <a href="{% url 'update' task.id %}">Edit</a>
       | <a href="{% url 'delete' task.id %}">Delete</a>
+      | <a href="{% url 'start' task.id %}">Start</a>
       | <a href="{% url 'close' task.id %}">Close</a>
     </div>
   </body>

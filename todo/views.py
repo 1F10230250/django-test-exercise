@@ -31,12 +31,22 @@ def detail(request, task_id):
     }
     return render(request, 'todo/detail.html', context)
 
+def start(request, task_id):
+    try: 
+        task = Task.objects.get(pk=task_id)
+    except Task.DoesNotExist:
+        raise Http404("Task does not exist")
+    task.status = "in_progress"
+    task.save()
+    print(task.status)
+    return redirect(index)
+
 def close(request, task_id):
     try: 
         task = Task.objects.get(pk=task_id)
     except Task.DoesNotExist:
         raise Http404("Task does not exist")
-    task.completed = True
+    task.status = "completed"
     task.save()
     return redirect(index)
 
