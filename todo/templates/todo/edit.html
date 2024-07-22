@@ -20,6 +20,10 @@
         <input id="titleInput" name="title" type="text" placeholder="Input title" value="{{ task.title }}">
       </div>
       <div>
+        <label for="detailInput">詳細</label><br>
+        <textarea name="detail" cols="40" rows="8" input id="detailInput" name="detail" type="text" placeholder="Input detail" value="{{ task.detail }}"></textarea>
+      </div>
+      <div>
         <label for="dueInput">日付</label><br>
         <input id="dueInput" name="due_at" type="datetime-local" value="{{task.due_at|date:"Y-m-d H:i"}}">
       </div>

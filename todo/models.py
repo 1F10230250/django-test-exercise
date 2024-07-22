@@ -11,6 +11,8 @@ class Task (models.Model):
 
     title = models.CharField(max_length=100)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='not_completed')
+    detail = models.CharField(max_length=100)
+    detail = models.TextField(default="")
     posted_at = models.DateTimeField(default=timezone.now)
     due_at = models.DateTimeField(null=True, blank=True)
 
