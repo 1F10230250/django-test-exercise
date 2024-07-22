@@ -3,7 +3,7 @@
 <html lang="ja">
 
   <head>
-    <title>To Do Application</title>
+    <title>ToDoアプリ</title>
     <link rel="stylesheet"  href="{% static 'todo/top.css' %}">
     <meta charset="UTF-8">
     <meta name="author" content="INIAD">
@@ -11,41 +11,41 @@
 
   <body>
     <img src="{% static 'todo/OIG1.PNiX.jpg' %}" alt="ロゴ">
-    <h1>Sample To Do Application</h1>
-    <p>You can submit tasks from the following form.</p>
+    <h1>oh!  ToDo!</h1>
+    <p>ToDoを以下から追加できます</p>
     <form action="{% url 'index' %}" method="post">
       {% csrf_token %}
       <div>
-        <label for="titleInput">Title</label><br>
-        <input id="titleInput" name="title" type="text" placeholder="Input title">
+        <label for="titleInput">タイトル:</label><br>
+        <input id="titleInput" name="title" type="text" placeholder="やること">
       </div>
       <div>
-        <label for="dueInput">Due at:</label><br>
+        <label for="dueInput">日付:</label><br>
         <input id="dueInput" name="due_at" type="datetime-local">
       </div>
       <div>
-        <button type="submit">Submit</button>
+        <button type="submit">追加</button>
       </div>
     </form>
     <br>
 
     <div>
-      <a href="{% url 'index' %}?order=due">Sort by Due Date</a> |
-      <a href="{% url 'index' %}?order=post">Sort by Posted Date</a>
+      <a href="{% url 'index' %}?order=due">日付で並べ替える</a> |
+      <a href="{% url 'index' %}?order=post">登録日で並べ替える</a>
     </div>
 
     {% for task in tasks %}
     <div class="text">
       <h2><a href="{% url 'detail' task.id %}">{{ task.title }}</a></h2>
       <ul>
-        <li>Posted at: {{ task.posted_at }}</li>
+        <li>登録日: {{ task.posted_at }}</li>
         {% if task.due_at %} 
-        <li>Due at: {{ task.due_at }}</li>
+        <li>日付: {{ task.due_at }}</li>
         {% endif %}
         {% if task.completed %} 
-        <li>Status: Completed</li>
+        <li>ステータス: 完了</li>
         {% else %}
-        <li>Status: Not Completed</li>
+        <li>ステータス: 未完了</li>
         {% endif %}
       </ul>
     </div>
