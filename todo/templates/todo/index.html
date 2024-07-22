@@ -4,13 +4,13 @@
 
   <head>
     <title>To Do Application</title>
-    <link rel="stylesheet" type="text/css" href="css/top.css">
+    <link rel="stylesheet"  href="{% static 'todo/top.css' %}">
     <meta charset="UTF-8">
     <meta name="author" content="INIAD">
   </head>
 
   <body>
-    <img src="img/OIG1.PNiX.jpg" alt="ロゴ">
+    <img src="{% static 'todo/OIG1.PNiX.jpg' %}" alt="ロゴ">
     <h1>Sample To Do Application</h1>
     <p>You can submit tasks from the following form.</p>
     <form action="{% url 'index' %}" method="post">
