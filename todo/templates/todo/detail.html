@@ -17,8 +17,10 @@
       {% if task.due_at %}
       <li>日付: {{ task.due_at }}</li>
       {% endif %}
-      {% if task.completed %}
+      {% if task.status == "completed" %} 
       <li>ステータス: 完了</li>
+      {% elif task.status == "in_progress" %}
+      <li>ステータス: 実行中</li>
       {% else %}
       <li>ステータス: 未完了</li>
       {% endif %}
@@ -28,6 +30,7 @@
       <a href="{% url 'index' %}">トップ</a>
       | <a href="{% url 'update' task.id %}">編集</a>
       | <a href="{% url 'delete' task.id %}">削除</a>
+      | <a href="{% url 'start' task.id %}">Start</a>
       | <a href="{% url 'close' task.id %}">完了にする</a>
     </div>
   </body>
